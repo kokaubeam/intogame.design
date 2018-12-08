@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  ui:
+    build:
+      context: ./ui
+      target: dev
+    ports:
+      - '3000:3000'
+      - '35729:35729'
+    volumes:
+      - ./ui:/app:cached
+      - /app/node_modules
