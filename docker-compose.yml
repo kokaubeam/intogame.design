@@ -1,12 +1,12 @@
 version: '3.7'
 services:
-  ui:
+  website:
     build:
-      context: ./ui
+      context: ./
       target: dev
     ports:
       - '3000:3000'
       - '35729:35729'
     volumes:
-      - ./ui:/app:cached
+      - ./:/app:cached
       - /app/node_modules
