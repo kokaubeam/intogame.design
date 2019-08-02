@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@testing-library/cypress": "^4.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
@@ -12,17 +11,17 @@
     "styled-normalize": "^8.0.6"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^4.0.3",
+    "@testing-library/jest-dom": "^4.0.0",
     "@testing-library/react": "^8.0.1",
     "cypress": "^3.3.1",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-cypress": "^2.2.1",
     "http-server": "^0.11.1",
-    "husky": "^2.4.1",
+    "husky": "^3.0.2",
     "is-ci-cli": "^1.1.1",
     "jest-axe": "^3.1.1",
-    "jest-dom": "^3.4.0",
-    "lint-staged": "^8.2.1",
+    "lint-staged": "^9.2.1",
     "mockdate": "^2.0.2",
     "prettier": "^1.17.1",
     "start-server-and-test": "^1.9.1"
@@ -37,8 +36,7 @@
     "format": "yarn prettier --write",
     "validate": "yarn test --watchAll=false --coverage && yarn test:e2e:run",
     "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
-    "pretest:e2e:run": "yarn build",
-    "test:e2e:run": "start-server-and-test 'http-server build -p 3000 -c-1 --silent' 3000 'cypress run'",
+    "test:e2e:run": "start-server-and-test start 3000 'cypress run'",
     "test:e2e:dev": "start-server-and-test start 3000 'cypress open'"
   },
   "eslintConfig": {
@@ -62,15 +60,13 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.js": [
-        "eslint"
-      ],
-      "**/*.+(graphql|js|jsx|json|md|yml)": [
-        "prettier --write",
-        "git add"
-      ]
-    }
+    "*.js": [
+      "eslint"
+    ],
+    "**/*.+(graphql|js|jsx|json|md|yml)": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "prettier": {
     "arrowParens": "avoid",
