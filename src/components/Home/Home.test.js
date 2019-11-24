@@ -6,7 +6,7 @@ import Home from './Home'
 
 test('content is accessible', async () => {
   const { container } = render(<Home />)
-  const results = await axe(container.innerHTML)
+  const results = await axe(container)
 
   expect(results).toHaveNoViolations()
 })

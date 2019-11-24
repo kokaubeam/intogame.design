@@ -6,7 +6,7 @@ import NotFound from './NotFound'
 
 test('content is accessible', async () => {
   const { container } = renderWithRouter(<NotFound />)
-  const results = await axe(container.innerHTML)
+  const results = await axe(container)
 
   expect(results).toHaveNoViolations()
 })
